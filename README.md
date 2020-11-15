@@ -198,15 +198,65 @@ private boolean containsNodeRecursive(Node current, int value) {
 ```
 
 ## Deleting an Element
-´´´
-         
-    private Node deleteRecursive(Node current, int value) {
-           
-      if (current == null) {
-            return null;
+
+First, we have to find the node to delete in a similar way as we did before:
+
+Once we find the node to delete, there are 3 main different cases:
+
+ - __a node has no children__ – this is the simplest case; we just need to replace this node with null in its parent node
+ - __a node has exactly one child__ – in the parent node, we replace this node with its only child.
+ - __a node has two children__ – this is the most complex case because it requires a tree reorganization
+
+### Leaf (No childern)
+
+	if (current.left == null && current.right == null) {
+      return null;
+      }
+      
+### One Chile      
+
+      if (current.right == null) {
+          return current.left;
       }
 
-      if (value == current.value) {
+      if (current.left == null) {
+          return current.right;
+      }
+
+### Two children
+
+To handle the case where the node has two children.
+
+First, we need to find the node that will replace the deleted node. We'll use the smallest node of the node to be deleted's right sub-tree:
+
+      private int findSmallestValue(Node root) {
+          return root.left == null ? root.value : findSmallestValue(root.left);
+      }
+Then, we assign the smallest value to the node to delete and after that, we'll delete it from the right subtree:
+
+      int smallestValue = findSmallestValue(current.right);
+      current.value = smallestValue;
+      current.right = deleteRecursive(current.right, smallestValue);
+      return current;
+
+Finally, let's create the public method that starts the deletion from the root:
+
+      public void delete(int value) {
+          root = deleteRecursive(root, value);
+      }
+
+#### Complete methods
+      public void delete(int value) {
+          root = deleteRecursive(root, value);
+      }    
+         
+       private Node deleteRecursive(Node current, int value) {
+
+       if (current == null) {
+            return null;
+       }
+
+       if (value == current.value) {
             // Case 1: no children
             if (current.left == null && current.right == null) {
                 return null;
@@ -234,9 +284,8 @@ private boolean containsNodeRecursive(Node current, int value) {
 
         current.right = deleteRecursive(current.right, value);
         return current;
-    }
+       }
 
-      private int findSmallestValue(Node root) {
-        return root.left == null ? root.value : findSmallestValue(root.left);
-      }
-´´´
+       private int findSmallestValue(Node root) {
+         return root.left == null ? root.value : findSmallestValue(root.left);
+       }
