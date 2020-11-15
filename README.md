@@ -291,4 +291,4 @@ Finally, let's create the public method that starts the deletion from the root:
          return root.left == null ? root.value : findSmallestValue(root.left);
        }
 
-!(treeDelition)[https://github.com/Leandromaro/binaryTree/blob/main/treeRemove.png]
+![treeDelition](https://github.com/Leandromaro/binaryTree/blob/main/treeRemove.png)
