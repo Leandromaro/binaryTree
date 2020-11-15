@@ -227,7 +227,8 @@ Once we find the node to delete, there are 3 main different cases:
 
 To handle the case where the node has two children.
 
-First, we need to find the node that will replace the deleted node. We'll use the smallest node of the node to be deleted's right sub-tree:
+First, we need to find the node that will replace the deleted node. 
+__We'll use the smallest node of the node to be deleted's right sub-tree__:
 
       private int findSmallestValue(Node root) {
           return root.left == null ? root.value : findSmallestValue(root.left);
