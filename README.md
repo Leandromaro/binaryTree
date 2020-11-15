@@ -137,3 +137,106 @@ This can be directly derived from point 2 above. If we consider the convention w
       T = Number of internal nodes with two children
       ````
 
+# Common Operations
+
+## Inserting Elements
+
+The first operation we're going to cover is the insertion of new nodes.
+
+First, __we have to find the place where we want to add a new node in order to keep the tree sorted.__ We'll follow these rules starting from the root node:
+
+ - if the new node's value is lower than the current node's, we go to the left child
+ - if the new node's value is greater than the current node's, we go to the right child
+ - when the current node is null, we've reached a leaf node and we can insert the new node in that position
+ 
+ Recursive insertion method
+```
+
+public void add(int value) {
+    root = addRecursive(root, value);
+}
+
+private Node addRecursive(Node current, int value) {
+    if (current == null) {
+        return new Node(value);
+    }
+ 
+    if (value < current.value) {
+        current.left = addRecursive(current.left, value);
+    } else if (value > current.value) {
+        current.right = addRecursive(current.right, value);
+    } else {
+        // value already exists
+        return current;
+    }
+ 
+    return current;
+}
+```
+
+## Finding element
+
+First create a recursive method that traverses the tree:
+
+```
+public boolean containsNode(int value) {
+    return containsNodeRecursive(root, value);
+}
+
+
+private boolean containsNodeRecursive(Node current, int value) {
+    if (current == null) {
+        return false;
+    } 
+    if (value == current.value) {
+        return true;
+    } 
+    return value < current.value
+      ? containsNodeRecursive(current.left, value)
+      : containsNodeRecursive(current.right, value);
+}
+```
+
+## Deleting an Element
+´´´
+         
+    private Node deleteRecursive(Node current, int value) {
+           
+      if (current == null) {
+            return null;
+      }
+
+      if (value == current.value) {
+            // Case 1: no children
+            if (current.left == null && current.right == null) {
+                return null;
+            }
+
+            // Case 2: only 1 child
+            if (current.right == null) {
+                return current.left;
+            }
+
+            if (current.left == null) {
+                return current.right;
+            }
+
+            // Case 3: 2 children
+            int smallestValue = findSmallestValue(current.right);
+            current.value = smallestValue;
+            current.right = deleteRecursive(current.right, smallestValue);
+            return current;
+        }
+        if (value < current.value) {
+            current.left = deleteRecursive(current.left, value);
+            return current;
+        }
+
+        current.right = deleteRecursive(current.right, value);
+        return current;
+    }
+
+      private int findSmallestValue(Node root) {
+        return root.left == null ? root.value : findSmallestValue(root.left);
+      }
+´´´
