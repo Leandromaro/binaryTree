@@ -123,7 +123,7 @@ Here level is the number of nodes on the path from the root to the node (includi
 __Here the height of a tree is the maximum number of nodes counting from the root to leaf path__. Height of a tree with a single node is considered as 1
 3) In a Binary Tree with N nodes, minimum possible height or the minimum number of levels is? Log<sub>2</sub>(N+1) ?   
 This can be directly derived from point 2 above. If we consider the convention where the height of a leaf node is considered as 0, then above formula for minimum possible height becomes? Log<sub>2</sub>(N+1) ? – 1 
-4) A Binary Tree with L leaves has at least? Log<sub>2</sub>L? + 1 levels 
+4) A Binary Tree with L leaves has at least? Log<sub>2</sub>L? + 1 levels. 
       A Binary tree has the maximum number of leaves (and a minimum number of levels) when all levels are fully filled. Let all leaves be at level l, then below is true for the number of leaves L. 
       ```
       L   <=  2<sup>l-1</sup>  [From Point 1]
