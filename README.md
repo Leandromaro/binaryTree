@@ -209,8 +209,8 @@ Once we find the node to delete, there are 3 main different cases:
 
 ### Leaf (No childern)
 
-	if (current.left == null && current.right == null) {
-      return null;
+      if (current.left == null && current.right == null) {
+           return null;
       }
       
 ### One Chile      
