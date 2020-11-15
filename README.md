@@ -213,7 +213,7 @@ Once we find the node to delete, there are 3 main different cases:
            return null;
       }
       
-### One Chile      
+### One Children      
 
       if (current.right == null) {
           return current.left;
@@ -292,3 +292,82 @@ Finally, let's create the public method that starts the deletion from the root:
        }
 
 ![treeDelition](https://github.com/Leandromaro/binaryTree/blob/main/treeRemove.png)
+
+# Traversing the Tree
+
+## Depth-First Search
+
+__Depth-first search is a type of traversal that goes deep as much as possible in every child before exploring the next sibling.__
+
+There are several ways to perform a depth-first search: 
+ - in-order 
+ - pre-order
+ - post-order
+ 
+ ### In Order
+ 
+__The in-order traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree:
+
+      public void traverseInOrder(Node node) {
+          if (node != null) {
+              traverseInOrder(node.left);
+              System.out.print(" " + node.value);
+              traverseInOrder(node.right);
+          }
+      }
+
+### Pre Order
+
+__Pre-order traversal visits first the root node, then the left subtree, and finally the right subtree:
+
+      public void traversePreOrder(Node node) {
+          if (node != null) {
+              System.out.print(" " + node.value);
+              traversePreOrder(node.left);
+              traversePreOrder(node.right);
+          }
+      }
+
+### Post Order
+
+__Post-order traversal visits the left subtree, the right subtree, and the root node at the end:
+
+      public void traversePostOrder(Node node) {
+          if (node != null) {
+              traversePostOrder(node.left);
+              traversePostOrder(node.right);
+              System.out.print(" " + node.value);
+          }
+      }
+
+## Breadth-First Search
+
+his is another common type of traversal that __visits all the nodes of a level before going to the next level.
+
+This kind of traversal is also called level-order and visits all the levels of the tree starting from the root, and from left to right.
+
+For the implementation, we'll use a Queue to hold the nodes from each level in order. We'll extract each node from the list, print its values, then add its children to the queue:
+
+      public void traverseLevelOrder() {
+          if (root == null) {
+              return;
+          }
+
+          Queue<Node> nodes = new LinkedList<>();
+          nodes.add(root);
+
+          while (!nodes.isEmpty()) {
+
+              Node node = nodes.remove();
+
+              System.out.print(" " + node.value);
+
+              if (node.left != null) {
+                  nodes.add(node.left);
+              }
+
+              if (node.right != null) {
+                  nodes.add(node.right);
+              }
+          }
+      }
