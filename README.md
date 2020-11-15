@@ -60,10 +60,14 @@ Since each element in a binary tree can have __only 2 children__, we typically n
               left = right = null; 
           } 
       } 
-            class BinaryTree { 
+  
+      // A Java program to introduce Binary Tree 
+      class BinaryTree 
+      { 
           // Root of Binary Tree 
           Node root; 
-          
+
+          // Constructors 
           BinaryTree(int key) 
           { 
               root = new Node(key); 
@@ -73,7 +77,7 @@ Since each element in a binary tree can have __only 2 children__, we typically n
           { 
               root = null; 
           } 
-  
+
           public static void main(String[] args) 
           { 
               BinaryTree tree = new BinaryTree(); 
@@ -109,5 +113,4 @@ Since each element in a binary tree can have __only 2 children__, we typically n
                 null null 
                */
           } 
-      }  
-´´´
+      }
