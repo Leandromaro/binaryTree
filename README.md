@@ -48,9 +48,8 @@ A tree whose elements have at most 2 children is called a binary tree.
 Since each element in a binary tree can have __only 2 children__, we typically name them the left and right child.
 
 ´´´
-
-/* Class containing left and right child of current 
-   node and key value*/
+// Class containing left and right child of current 
+//   node and key value
 class Node 
 { 
     int key; 
@@ -61,7 +60,7 @@ class Node
         key = item; 
         left = right = null; 
     } 
-}
+} 
   
 // A Java program to introduce Binary Tree 
 class BinaryTree 
@@ -115,6 +114,5 @@ class BinaryTree
           null null 
          */
     } 
-} 
-
+}  
 ´´´
