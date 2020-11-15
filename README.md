@@ -306,7 +306,7 @@ There are several ways to perform a depth-first search:
  
  ### In Order
  
-__The in-order traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree:
+__The in-order traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree:__
 
       public void traverseInOrder(Node node) {
           if (node != null) {
@@ -318,7 +318,7 @@ __The in-order traversal consists of first visiting the left sub-tree, then the 
 
 ### Pre Order
 
-__Pre-order traversal visits first the root node, then the left subtree, and finally the right subtree:
+__Pre-order traversal visits first the root node, then the left subtree, and finally the right subtree:__
 
       public void traversePreOrder(Node node) {
           if (node != null) {
@@ -330,7 +330,7 @@ __Pre-order traversal visits first the root node, then the left subtree, and fin
 
 ### Post Order
 
-__Post-order traversal visits the left subtree, the right subtree, and the root node at the end:
+__Post-order traversal visits the left subtree, the right subtree, and the root node at the end:__
 
       public void traversePostOrder(Node node) {
           if (node != null) {
@@ -342,7 +342,7 @@ __Post-order traversal visits the left subtree, the right subtree, and the root 
 
 ## Breadth-First Search
 
-his is another common type of traversal that __visits all the nodes of a level before going to the next level.
+his is another common type of traversal that __visits all the nodes of a level before going to the next level.__
 
 This kind of traversal is also called level-order and visits all the levels of the tree starting from the root, and from left to right.
 
