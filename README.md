@@ -342,7 +342,7 @@ __Post-order traversal visits the left subtree, the right subtree, and the root 
 
 ## Breadth-First Search
 
-his is another common type of traversal that __visits all the nodes of a level before going to the next level.__
+This is another common type of traversal that __visits all the nodes of a level before going to the next level.__
 
 This kind of traversal is also called level-order and visits all the levels of the tree starting from the root, and from left to right.
 
