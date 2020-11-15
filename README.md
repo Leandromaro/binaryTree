@@ -373,6 +373,6 @@ For the implementation, we'll use a Queue to hold the nodes from each level in o
       }
 
 # References
- - [geeksforgeeks](https://www.geeksforgeeks.org/binary-tree-set-1-introduction/)
+ - [Geeks For Geeks](https://www.geeksforgeeks.org/binary-tree-set-1-introduction/)
  - [Baeldung](https://www.baeldung.com/java-binary-tree)
  - [Lalitha Natraj](https://www.youtube.com/watch?v=g0mjZwYRErM&t=2s)
